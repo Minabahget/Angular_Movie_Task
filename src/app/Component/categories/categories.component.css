@@ -1,0 +1,14 @@
+.list-group-item {
+    border: 1px solid #ddd; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    margin-bottom: 10px; /* Add margin between items */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa; /* Add background color on hover */
+  }
+  #categoryList {
+    max-height: 300px; /* Set maximum height for the list */
+    overflow-y: auto; /* Enable vertical scrollbar when content overflows */
+  }

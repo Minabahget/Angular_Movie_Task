@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="my-3">
+      <button class="btn btn-primary" routerLink="/addCategory">
+        Add Category
+      </button>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of categories">
+              <td>{{ category.name }}</td>
+              <td>{{ category.description }}</td>
+              <td>
+                <button
+                  class="btn btn-outline-primary"
+                  [routerLink]="['/updateCategry', category.id]"
+                >
+                  Update
+                </button>
+              </td>
+              <td>
+                <button (click)="delete(category.id)" class="btn btn-danger">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

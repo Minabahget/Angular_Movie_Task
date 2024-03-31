@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()" class="w-50 m-auto form" [formGroup]="addForm">
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">name</label>
+    <input type="text" class="form-control" formControlName="name" />
+    <p style="color: red">{{ ValidName }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">description</label>
+    <input type="text" class="form-control" formControlName="description" />
+    <p style="color: red">{{ validDescription }}</p>
+  </div>
+  <div
+    class="text-center my-2 d-flex justify-content-center align-items-center"
+  >
+    <div class="mx-2">
+      <button type="submit" class="btn btn-primary my-2">Add</button>
+    </div>
+    <div class="mx-2">
+      <button [routerLink]="'/categories'" class="btn btn-primary">
+        Back to list
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,16 @@
+<form (ngSubmit)="updatebtn()" class="w-50 m-auto form" [formGroup]="updateForm">
+    <div class="mb-3 m-auto formGroup">
+      <label class="form-label">name</label>
+      <input type="text" class="form-control" formControlName="name">
+      <p style="color: red;">{{ValidName}}</p>
+    </div>
+    <div class="mb-3 m-auto formGroup">
+      <label class="form-label">description</label>
+      <input type="text" class="form-control" formControlName="description">
+      <p style="color: red;">{{validDescription}}</p>
+    </div>
+    <div class="text-center my-2">
+      <button type="submit" class="btn btn-primary my-2">update</button>
+    </div>
+  </form>
+  

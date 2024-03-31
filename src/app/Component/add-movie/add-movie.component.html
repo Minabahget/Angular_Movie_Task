@@ -1,0 +1,62 @@
+<form
+  (ngSubmit)="onSubmit()"
+  class="w-50 m-auto form"
+  [formGroup]="addMovieForm"
+>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" formControlName="title" />
+    <p style="color: red">{{ validTitle }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Description</label>
+    <input type="text" class="form-control" formControlName="description" />
+    <p style="color: red">{{ validDescription }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Duration</label>
+    <input type="time" class="form-control" formControlName="duration" />
+    <p style="color: red">{{ validDuration }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Rate</label>
+    <input type="number" class="form-control" formControlName="rate" />
+    <p style="color: red">{{ validRate }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Created Date</label>
+    <input type="date" class="form-control" formControlName="createdDate" />
+    <p style="color: red">{{ validCreatedDate }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Categories</label>
+    <select multiple class="form-control" formControlName="categories">
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name }}
+      </option>
+    </select>
+    <p style="color: red">{{ validCategories }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Image</label>
+    <input
+      type="file"
+      class="form-control"
+      formControlName="image"
+      (change)="convertImage($event)"
+    />
+    <p style="color: red">{{ validImage }}</p>
+  </div>
+  <div
+    class="text-center my-2 d-flex justify-content-center align-items-center"
+  >
+    <div class="mx-2">
+      <button type="submit" class="btn btn-primary my-2">Add</button>
+    </div>
+    <div class="mx-2">
+      <button [routerLink]="'/Movies/0'" class="btn btn-primary">
+        Back to list
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,65 @@
+<form
+  (ngSubmit)="updateMovie()"
+  class="w-50 m-auto form"
+  [formGroup]="updateForm"
+>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" formControlName="title" />
+    <p style="color: red">{{ validTitle }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Description</label>
+    <input type="text" class="form-control" formControlName="description" />
+    <p style="color: red">{{ validDescription }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Duration</label>
+    <input type="time" class="form-control" formControlName="duration" />
+    <p style="color: red">{{ validDuration }}</p>
+  </div>
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Rate</label>
+    <input type="number" class="form-control" formControlName="rate" />
+    <p style="color: red">{{ validRate }}</p>
+  </div>
+
+  <div class="mb-3 m-auto formGroup" style="height: 200px; overflow-y: auto">
+    <label class="form-label">Category</label>
+
+    <div *ngFor="let categoryOfAll of categories; let i = index">
+      <input
+        type="checkbox"
+        name="i"
+        [checked]="selectedCategories.includes(categoryOfAll.name)"
+        (change)="getCheckboxes(categoryOfAll.name)"
+      />
+      <label [for]="categoryOfAll.name">{{ categoryOfAll.name }}</label>
+      <br />
+    </div>
+  </div>
+  <div>
+    <p style="color: red">{{ validCategory }}</p>
+  </div>
+
+  <div class="mb-3 m-auto formGroup">
+    <label class="form-label">Image</label>
+    <input
+      type="file"
+      class="form-control"
+      formControlName="image"
+      (change)="convertImage($event)"
+    />
+    <p style="color: red">{{ validImage }}</p>
+    <div class="d-flex justify-content-center">
+      <img
+        src="{{ imagePath }}"
+        class="img-fluid mt-2 fixed-height-image"
+        alt="Image Preview"
+      />
+    </div>
+  </div>
+  <div class="text-center my-2">
+    <button type="submit" class="btn btn-primary my-2">Update</button>
+  </div>
+</form>

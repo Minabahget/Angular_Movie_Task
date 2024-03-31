@@ -1,0 +1,36 @@
+/* Style the navigation pills container */
+.nav-pills {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f9fa; /* Set background color */
+  padding: 10px; /* Add padding */
+  border-radius: 5px; /* Add border radius */
+  width: 100%; /* Make the container stretch across the page */
+  flex-direction: row; /* Stack items horizontally */
+}
+
+/* Style the navigation links */
+.nav-link {
+  color: #000; /* Set text color */
+  text-decoration: none; /* Remove underline */
+  padding: 5px 10px; /* Add padding */
+  border-radius: 5px; /* Add border radius */
+}
+
+/* Style the active navigation link */
+.nav-link.active {
+  background-color: #007bff; /* Set background color */
+  color: #fff; /* Set text color */
+}
+
+/* Style the navigation link on hover */
+.nav-link:hover {
+  background-color: #e9ecef; /* Set background color */
+}
+
+/* Style the temperature display */
+.card-text.text-center {
+  font-size: 24px; /* Set font size */
+  color: #007bff; /* Set text color */
+  margin-top: 10px; /* Add margin to the top */
+}

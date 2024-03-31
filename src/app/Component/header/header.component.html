@@ -1,0 +1,48 @@
+<div class="mb-5">
+  <ul class="nav nav-pills flex-column flex-md-row">
+    <li class="nav-item mb-2 mb-md-0">
+      <div ngbDropdown class="d-inline-block">
+        <button
+          class="btn btn-outline-primary"
+          id="dropdownBasic1"
+          ngbDropdownToggle
+        >
+          Categories
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button
+            *ngFor="let category of categories"
+            ngbDropdownItem
+            [routerLink]="['/Movies', category.id]"
+          >
+            {{ category.name }}
+          </button>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active"
+        routerLink="/categories"
+        >Categories</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active"
+        aria-current="page"
+        routerLink="/Movies/0"
+        >Movies</a
+      >
+    </li>
+    <li>
+      <p class="card-text text-center" *ngIf="temperature !== undefined">
+        {{ temperature }}°C
+      </p>
+    </li>
+  </ul>
+</div>

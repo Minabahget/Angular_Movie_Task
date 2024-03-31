@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-6" *ngIf="movie">
+      <div class="card">
+        <img
+          [src]="localHost + movie.imagePath"
+          class="card-img-top"
+          alt="Movie Poster"
+          style="max-width: 250px; margin: auto"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ movie.title }}</h5>
+          <p class="card-text">{{ movie.description }}</p>
+          <p class="card-text">Duration: {{ movie.duration }}</p>
+          <p class="card-text">Rate: {{ movie.rate }}</p>
+          <p class="card-text">
+            Categories:
+            <span *ngFor="let category of movie?.categories; let last = last"
+              >{{ category }}{{ !last ? ", " : "" }}</span
+            >
+          </p>
+          <div
+            class="text-center my-2 d-flex justify-content-center align-items-center"
+          >
+            <div class="mx-2">
+              <button
+                [routerLink]="['/updateMovie', movie.id]"
+                class="btn btn-primary"
+              >
+                Update
+              </button>
+            </div>
+            <div class="mx-2">
+              <button class="btn btn-danger" (click)="deleteMovie(movie.id)">
+                Delete
+              </button>
+            </div>
+            <div class="mx-2">
+              <button routerLink="/Movies/0" class="btn btn-primary">
+                Back to list
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6" *ngIf="!movie">
+      <p>No movie data available.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4" *ngIf="message">
+  <div class="alert alert-danger" role="alert">{{ message }}</div>
+</div>
